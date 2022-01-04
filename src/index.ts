@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import pm2 from 'pm2'
+import { sleep } from 'time-helpers'
 
 type TAppSettings = {}
 
@@ -15,6 +16,9 @@ class App {
   }
 
   async start() {
+    console.log('start...')
+    await sleep(30e3)
+
     pm2.connect(function (err) {
       if (err) {
         console.error(err)
@@ -25,7 +29,6 @@ class App {
         console.log(err, list)
 
         pm2.restart('pm2do', (err, proc) => {
-          // Disconnects from PM2
           pm2.disconnect()
         })
       })

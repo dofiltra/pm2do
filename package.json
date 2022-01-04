@@ -2,11 +2,11 @@
   "name": "package_name",
   "version": "1.0.1",
   "description": "",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "type": "module",
   "scripts": {
-    "start": "node --trace-warnings --experimental-modules --es-module-specifier-resolution=node ./lib/debug.js",
+    "start": "node --trace-warnings --experimental-modules --es-module-specifier-resolution=node ./build/index.js",
     "test": "echo \"jest --config jestconfig.json\"",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -16,7 +16,7 @@
     "preversion": "yarn run lint",
     "version": "yarn run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "dev": "yarn run build && node --trace-warnings --experimental-modules --es-module-specifier-resolution=node ./lib/debug.js",
+    "dev": "yarn run build && yarn start",
     "upg": "yarn upgrade --latest && yarn run build"
   },
   "repository": {
