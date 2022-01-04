@@ -9,7 +9,7 @@ type TAppSettings = {}
 type TPm2App = { appName: string; url: string }
 
 class App {
-  static version = 1
+  static version = 2
   static env = process.env
   static rootPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -37,6 +37,8 @@ class App {
   }
 
   private async restartApp(appName: string) {
+    console.log(`Restarting... app '${appName}'`)
+
     pm2.connect(function (err) {
       if (err) {
         console.error(err)
