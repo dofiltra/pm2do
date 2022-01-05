@@ -9,7 +9,7 @@ type TAppSettings = {}
 type TPm2App = { appName: string; url: string }
 
 class App {
-  static version = 2
+  static version = 3
   static env = process.env
   static rootPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -31,7 +31,7 @@ class App {
         }
       })
     )
-    await sleep(5e3)
+    await sleep(10e3)
 
     return this.start()
   }
