@@ -18,7 +18,7 @@ class App {
   }
 
   async start(): Promise<void> {
-    console.log(`Start 'pm2do' v${App.version} | ${new Date().toJSON()}`)
+    //console.log(`Start 'pm2do' v${App.version} | ${new Date().toJSON()}`)
     const apps: TPm2App[] = [
       { appName: 'xfwd', url: 'https://api.dofiltra.com' },
       // { appName: 'xfwd', url: 'https://api.dofiltra.com' },
@@ -31,7 +31,7 @@ class App {
         }
       })
     )
-    await sleep(10e3)
+    await sleep(5e3)
 
     return this.start()
   }
