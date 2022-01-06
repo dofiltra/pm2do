@@ -27,7 +27,9 @@ class App {
   }
 
   async start(): Promise<void> {
-    console.log(`Start 'pm2do' v${App.version} | ${new Date().toJSON()}`)
+    if (new Date().getMinutes() % 2 === 0) {
+      console.log(`Start 'pm2do' v${App.version} | ${new Date().toJSON()}`)
+    }
     await sleep(10e3)
 
     pm2.connect((err) => {
