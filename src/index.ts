@@ -27,9 +27,9 @@ class App {
   }
 
   async start(): Promise<void> {
-    if (new Date().getMinutes() % 2 === 0) {
-      console.log(`Start 'pm2do' v${App.version} | ${new Date().toJSON()}`)
-    }
+    const canLog = new Date().getMinutes() % 10 === 0
+    canLog && console.log(`Start 'pm2do' v${App.version} | ${new Date().toJSON()}`)
+
     await sleep(10e3)
 
     pm2.connect((err) => {
@@ -57,10 +57,11 @@ class App {
           },
         ].filter((app) => list.some((l) => l.name === app.appName))
 
-        console.log(
-          'Check apps: ',
-          apps.map((x) => x.appName)
-        )
+        canLog &&
+          console.log(
+            'Check apps: ',
+            apps.map((x) => x.appName)
+          )
 
         await Promise.all(
           apps.map(async (app) => {
