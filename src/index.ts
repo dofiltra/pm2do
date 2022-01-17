@@ -18,7 +18,7 @@ type TPm2App = {
 }
 
 class App {
-  static version = 4
+  static version = 5
   static env = process.env
   static rootPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -30,7 +30,7 @@ class App {
     const canLog = new Date().getMinutes() % 10 === 0
     canLog && console.log(`Start 'pm2do' v${App.version} | ${new Date().toJSON()}`)
 
-    await sleep(10e3)
+    await sleep(30e3)
 
     pm2.connect((err) => {
       if (err) {
