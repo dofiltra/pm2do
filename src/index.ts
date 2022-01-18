@@ -52,7 +52,7 @@ class App {
             appName: 'aiback',
             file: {
               path: '/root/.pm2/logs/aiback-out.log',
-              maxIdleSeconds: 15 * 60,
+              maxIdleSeconds: 5 * 60,
             },
           },
         ].filter((app) => list.some((l) => l.name === app.appName))
