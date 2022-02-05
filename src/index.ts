@@ -66,7 +66,7 @@ class App {
         await Promise.all(
           apps.map(async (app) => {
             if (!(await this.isLiveApp(app))) {
-              this.restartApp(app.appName)
+              await this.restartApp(app.appName)
             }
           })
         )
@@ -99,7 +99,7 @@ class App {
       })
     })
 
-    await sleep(15e3)
+    await sleep(30e3)
   }
 
   private async isLiveApp(app: TPm2App) {
