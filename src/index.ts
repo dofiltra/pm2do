@@ -99,7 +99,7 @@ class App {
       })
     })
 
-    await sleep(30e3)
+    await sleep(60e3)
   }
 
   private async isLiveApp(app: TPm2App) {
