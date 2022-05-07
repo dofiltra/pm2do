@@ -18,7 +18,7 @@ type TPm2App = {
 }
 
 class App {
-  static version = 5
+  static version = 6
   static env = process.env
   static rootPath = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -47,6 +47,10 @@ class App {
           {
             appName: 'xfwd',
             url: 'https://api.dofiltra.com',
+          },
+          {
+            appName: 'doapi',
+            url: 'https://api-stage.dofiltra.com',
           },
           {
             appName: 'aiback',
